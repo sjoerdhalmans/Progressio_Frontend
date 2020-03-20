@@ -1,14 +1,4 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<style>
-  :host {
+:host {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 14px;
     color: #333;
@@ -315,64 +305,3 @@
       visibility: hidden;
     }
   }
-</style>
-
-<!-- Toolbar -->
-<NavBarComponent></NavBarComponent>
-
-<div class="content largetext " role="main">
-  <div class="row">
-    <div class="col-8">
-      <p>PROGRESSIO</p>
-  
-      <!-- Resources -->
-      <h1>A student's view on project management</h1>
-    
-      <div class="description ">
-            <h4>
-              Progressio is a web application made for development teams or sole developers that
-              like to keep all of their tasks organized. 
-            </h4>
-            <h4>
-              Designed for easy use and co-operation with your fellow developers. Progressio strives
-              to offer a new experience in the realm of project management.
-            </h4>
-
-            
-      </div>  
-    </div>
-
-    <div class="col-4 mt-5">
-      <img height=500px src="../assets/progressio.png"/>
-    </div>
-  </div>
-
-<footer>
-
-</footer>
-
-
-
-
-
-</div>
-
-<div class="wavecontainer">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-    <path fill="#273036" fill-opacity="0.1" d="M0,256L60,224C120,192,240,128,360,128C480,128,600,192,720,213.3C840,235,960,213,1080,197.3C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
-  </svg>
-</div>
-
-
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-
-<router-outlet></router-outlet>
