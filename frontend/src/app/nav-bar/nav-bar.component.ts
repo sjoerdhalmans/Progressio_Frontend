@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
-import { UserService } from '../user.service';
+import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -10,17 +10,13 @@ import { NgIf } from '@angular/common';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(public auth: AuthService, public user : UserService) { }
+  constructor(public auth: AuthService, public user : UserService) { 
+    if (this.auth.isAuthenticated$) {
+      this.user.getUsers();
+    }
+   }
 
   ngOnInit() {
-    console.log('testing before auth')
-    console.log(this.auth.isAuthenticated$)
-    if (this.auth.isAuthenticated$) {
-      console.log('testing in auth')
-
-      this.user.getUser;
-    }
-    console.log('testing after auth')
 
   }
 

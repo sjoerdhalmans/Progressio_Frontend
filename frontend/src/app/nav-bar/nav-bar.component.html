@@ -1,14 +1,8 @@
 <div class="toolbar" role="banner">
-    <img
-      width="40"
-      src="../assets/progressio.png"
-    />
-    <h1 class="mt-1">Progressio</h1>
-    <a routerLink="home">Home</a>&nbsp;
-    <a routerLink="profile" *ngIf="auth.loggedIn">Profile</a>
-    <button class= "btn btn-danger mr-3 loginbutton" (click)= "user.getUser()"></button>
-    
-      <div class="spacer"></div>
-      <button class= "btn btn-danger mr-3 loginbutton" (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
-      <button class="btn btn-danger mr-3 loginbutton" (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
+  <img width="40" src="../assets/progressio.png" />
+  <h1 class="mt-1">Progressio</h1>
+  <div class="spacer"></div>
+  <button class="btn btn-danger mr-3 loginbutton" (click)="user.getUsers()" *ngIf="!auth.loggedIn">Log In</button>
+  <button class="btn btn-danger mr-3 loginbutton" (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
+  <button class="btn btn-danger mr-3 loginbutton" (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
 </div>
