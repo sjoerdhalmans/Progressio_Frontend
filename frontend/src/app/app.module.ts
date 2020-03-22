@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     HomeComponent,
+    AuthenticationComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,4 +25,6 @@ import { HomeComponent } from './home/home.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }

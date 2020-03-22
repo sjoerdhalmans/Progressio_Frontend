@@ -319,7 +319,9 @@
 
 <!-- Toolbar -->
 <NavBarComponent></NavBarComponent>
-  <HomeComponent></HomeComponent>
+<HomeComponent></HomeComponent>
+<AuthenticationComponent *ngIf="auth.loggedIn"></AuthenticationComponent>
+
 
 <div class="wavecontainer">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
