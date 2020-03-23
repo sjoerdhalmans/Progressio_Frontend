@@ -40,6 +40,11 @@ export class UserService {
       })
   }
 
+  private myFunc: () => void;
+  onSomethingHappended(fn: () => void) {
+    this.myFunc = fn;
+  }
+
   private createUser() {
     this.auth.getUser$().toPromise().then(res => {
       var json = JSON.stringify(res)
@@ -59,7 +64,9 @@ export class UserService {
 
       console.log(newUser)
 
-      this.http.post('http://localhost:8081/api/addUser', newUser).toPromise().then(res => {console.log(res)})
+      this.http.post('http://localhost:8081/api/addUser', newUser).toPromise().then(res => {
+        this.myFunc()
+      })
     })
   }
 }
