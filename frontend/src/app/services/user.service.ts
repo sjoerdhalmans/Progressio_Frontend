@@ -22,7 +22,7 @@ export class UserService {
 
         console.log(users)
 
-        var user = users.find(x => x.sub == subclaim);
+        var user = users.filter(x => x.sub == subclaim);
 
         console.log(subclaim)
         console.log(users)
@@ -59,7 +59,7 @@ export class UserService {
 
       console.log(newUser)
 
-      this.http.post('http://localhost:8081/api/addUser', newUser, ).toPromise().then(res => {console.log(res)})
+      this.http.post('http://localhost:8081/api/addUser', newUser).toPromise().then(res => {console.log(res)})
     })
   }
 }
