@@ -176,6 +176,11 @@
     color: #125699;
   }
 
+  .menubutton {
+    color: white;
+    width: 90px;
+  }
+
   .loginbutton {
     background-color: #990000;
     border-color: #990000;

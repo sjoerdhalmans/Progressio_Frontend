@@ -319,7 +319,7 @@
 
 <!-- Toolbar -->
 <NavBarComponent></NavBarComponent>
-<HomeComponent></HomeComponent>
+<HomeComponent *ngIf="!auth.loggedIn"></HomeComponent>
 
 <AuthenticationComponent *ngIf="auth.loggedIn"></AuthenticationComponent>
 
