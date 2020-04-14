@@ -16,7 +16,12 @@ export class UserService {
   public getUser(subclaim) {
     var users;
 
-    this.http.get<Object>('http://localhost:8081/api/getAllUsers').toPromise()
+    const body = <Object>{
+      Content: { },
+      Destination: { ApiMethod: "getAllUsers", ApiName: "User" },
+    }
+
+    this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
       .then(res => {
         users = res;
 
@@ -56,15 +61,12 @@ export class UserService {
         })
       };
 
-      const newUser = <Object>{
-        username: newjson.nickname,
-        email: newjson.email,
-        sub: newjson.sub
+      const body = <Object>{
+        Content: { username: newjson.nickname, email: newjson.email, sub: newjson.sub },
+        Destination: { ApiMethod: "addUser", ApiName: "User" },
       }
 
-      console.log(newUser)
-
-      this.http.post('http://localhost:8081/api/addUser', newUser).toPromise().then(res => {
+      this.http.post('http://localhost:1957/api/gateway', body).toPromise().then(res => {
         this.myFunc()
       })
     })
