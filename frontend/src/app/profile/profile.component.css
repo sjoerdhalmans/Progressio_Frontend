@@ -1,14 +1,9 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+* {
+    font-family: 'Poiret One', cursive;
+}
 
-<style>
-  :host {
+
+:host {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 14px;
     color: #333;
@@ -73,14 +68,14 @@
   }
 
   .largetext {
-    font-size: 70px;
+    font-size:70px;
   }
 
   .wavecontainer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
+    position:absolute;
+   bottom:0;
+   width:100%;
+    }
 
   svg.material-icons {
     height: 24px;
@@ -213,7 +208,7 @@
   }
 
   .terminal pre {
-    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
     color: white;
     padding: 0 1rem 1rem;
     margin: 0;
@@ -257,17 +252,17 @@
     align-items: center;
     font-size: 12px;
     padding: 3px 10px;
-    border: 1px solid rgba(27, 31, 35, .2);
+    border: 1px solid rgba(27,31,35,.2);
     border-radius: 3px;
-    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
+    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
     margin-left: 4px;
     font-weight: 600;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
   }
 
   .github-star-badge:hover {
-    background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);
-    border-color: rgba(27, 31, 35, .35);
+    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
+    border-color: rgba(27,31,35,.35);
     background-position: -.5em;
   }
 
@@ -289,7 +284,7 @@
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
 
-    .card-container>*:not(.circle-link),
+    .card-container > *:not(.circle-link) ,
     .terminal {
       width: 100%;
     }
@@ -301,12 +296,6 @@
 
     .card.highlight-card span {
       margin-left: 72px;
-    }
-
-    .test {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
     }
 
     svg#rocket-smoke {
@@ -321,19 +310,3 @@
       visibility: hidden;
     }
   }
-</style>
-
-<!-- Toolbar -->
-<NavBarComponent></NavBarComponent>
-<HomeComponent *ngIf="!auth.loggedIn"></HomeComponent>
-<AuthenticationComponent *ngIf="auth.loggedIn"></AuthenticationComponent>
-<router-outlet></router-outlet>
-<notifier-container></notifier-container>
-
-<div class="wavecontainer">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 350">
-    <path fill="#273036" fill-opacity="0.1"
-      d="M0,256L60,224C120,192,240,128,360,128C480,128,600,192,720,213.3C840,235,960,213,1080,197.3C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
-    </path>
-  </svg>
-</div>

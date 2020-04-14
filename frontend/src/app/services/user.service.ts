@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '../services/auth.service'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { MessageService } from './message.service';
-import { find } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,29 +8,22 @@ import { find } from 'rxjs/operators';
 export class UserService {
   private userUrl = 'api/getAllUsers';  // URL to web api
 
-  constructor(public auth: AuthService, private http: HttpClient, private messageService: MessageService) { }
+  constructor(public auth: AuthService, private http: HttpClient) { }
 
-  public getUser(subclaim) {
+  public async getUser(subclaim): Promise<Object> {
     var users;
+    var user;
 
     const body = <Object>{
-      Content: { },
+      Content: {},
       Destination: { ApiMethod: "getAllUsers", ApiName: "User" },
     }
 
-    this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
+    await this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
       .then(res => {
         users = res;
 
-        console.log(users)
-
-        var user = users.filter(x => x.sub == subclaim);
-
-        console.log(subclaim)
-        console.log(users)
-        console.log('test filter');
-        console.log(user);
-        console.log('filter test over');
+        user = users.filter(x => x.sub == subclaim);
 
         if (user.length == 0) {
           console.log('user not found, creating account')
@@ -41,8 +31,10 @@ export class UserService {
         }
         else {
           console.log('user  found')
+          console.log(user)
         }
       })
+      return user
   }
 
   private myFunc: () => void;
@@ -57,7 +49,7 @@ export class UserService {
 
       const httpOptions = {
         headers: new HttpHeaders({
-          'Access-Control-Allow-Origin' : '*'
+          'Access-Control-Allow-Origin': '*'
         })
       };
 

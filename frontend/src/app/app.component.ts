@@ -4,24 +4,24 @@ import { NotifierService } from 'angular-notifier';
 import { UserService } from '../app/services/user.service'
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  user: UserService;
+	user: UserService;
 
-  title = 'frontend';
+	title = 'frontend';
 
-  private notifier: NotifierService;
+	private notifier: NotifierService;
 
-  constructor(public auth: AuthService, notifier: NotifierService, user: UserService) {
-    this.notifier = notifier;
-    this.user = user
-  }
+	constructor(public auth: AuthService, notifier: NotifierService, user: UserService) {
+		this.notifier = notifier;
+		this.user = user
+	}
 
-  public showNotification( type: string, message: string ): void {
-		this.notifier.notify( "success", "user created!" );
+	public showNotification(type: string, message: string): void {
+		this.notifier.notify("success", "user created!");
 	}
 
 	public hideOldestNotification(): void {
@@ -36,19 +36,20 @@ export class AppComponent implements OnInit {
 		this.notifier.hideAll();
 	}
 
-	public showSpecificNotification( type: string, message: string, id: string ): void {
-		this.notifier.show( {
+	public showSpecificNotification(type: string, message: string, id: string): void {
+		this.notifier.show({
 			id,
 			message,
 			type
-		} );
+		});
 	}
 
-	public hideSpecificNotification( id: string ): void {
-		this.notifier.hide( id );
-  }
-  
-  ngOnInit() {
-    this.user.onSomethingHappended(this.showNotification.bind(this));
-  }
+	public hideSpecificNotification(id: string): void {
+		this.notifier.hide(id);
+	}
+
+	ngOnInit() {
+		this.user.onSomethingHappended(this.showNotification.bind(this));
+		this.auth.auth0Client$
+	}
 }

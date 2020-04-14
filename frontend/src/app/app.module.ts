@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { ProjectComponent } from './project/project.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -58,6 +60,8 @@ const customNotifierOptions: NotifierOptions = {
     NavBarComponent,
     HomeComponent,
     AuthenticationComponent,
+    ProjectComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
