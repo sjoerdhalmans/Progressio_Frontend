@@ -11,13 +11,15 @@ import { observable } from 'rxjs';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+  profile: any = null;
 
   constructor(public auth: AuthService, public user : UserService) { 
-
    }
 
   ngOnInit() {
-
+    this.auth.userProfile$.subscribe(
+      profile => this.profile = profile
+    );
   }
 
 }

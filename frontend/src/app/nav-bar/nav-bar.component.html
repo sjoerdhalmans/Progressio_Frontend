@@ -1,10 +1,11 @@
 <div class="toolbar" role="banner">
   <img width="40" src="../assets/progressio.png" />
   <h1 class="mt-3">Progressio</h1>
-  <a class="btn menubutton ml-3 mt-1" routerLink="/project" routerLinkActive="active" *ngIf="auth.loggedIn">Projects</a>
-  <a class="btn menubutton ml-3 mt-1" routerLink="/profile" routerLinkActive="active" *ngIf="auth.loggedIn">home</a>
+  <button class="btn menubutton ml-5 mt-1" routerLink="/project" routerLinkActive="active" *ngIf="auth.loggedIn">Projects</button>
+  <button class="btn menubutton mt-1" routerLink="/profile" routerLinkActive="active" *ngIf="auth.loggedIn">profile</button>
 
   <div class="spacer"></div>
+  <img [src]="profile.picture" *ngIf="auth.loggedIn" alt="Profile picture" class="nav-user-profile rounded-circle" style="width: 40px" />
   <button class="btn btn-danger mr-3 loginbutton" (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
   <button class="btn btn-danger mr-3 loginbutton" (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
 </div>

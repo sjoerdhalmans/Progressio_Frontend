@@ -11,7 +11,7 @@ export class ProjectmanagementService {
 
   constructor(public auth: AuthService, private http: HttpClient, private userService: UserService) { }
 
-  public async getProjects() {
+  public async getProjects(): Promise<Array<object>> {
     var projects;
     var sub;
     var user
@@ -36,12 +36,10 @@ export class ProjectmanagementService {
       Destination: { ApiMethod: "getProjectsByUser", ApiName: "Project" },
     }
 
-    this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
+    await this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
       .then(res => {
         projects = res;
-
-        console.log(projects);
-
       })
+      return projects;
   }
 }

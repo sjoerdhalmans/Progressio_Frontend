@@ -5,20 +5,32 @@ import { ProjectmanagementService } from '../services/projectmanagement.service'
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
-  styleUrls: ['./project.component.css']
+  styleUrls: ['./project.component.scss'],
+
 })
-export class ProjectComponent implements OnInit  {
+
+
+export class ProjectComponent implements OnInit {
 
   constructor(private authService: AuthService, private projectService: ProjectmanagementService) { }
   
 
-  ngOnInit(): void {
-    this.projectService.getProjects();
-  }
+  projects = [];
+
+  async ngOnInit() {
+  await this.projectService.getProjects().then(res => {
+    this.projects = res;
+  })
+
+  
+  console.log("test");
+
+  console.log(this.projects);
+}
 
 
-  async ngOnDestroy() {
+async ngOnDestroy() {
 
-  }
+}
 
 }

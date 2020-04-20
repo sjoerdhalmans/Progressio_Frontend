@@ -61,18 +61,22 @@
 
   .content {
     display: flex;
+    flex: 1 0 auto;
     margin: 120px auto 32px;
     padding: 0 16px;
     max-width: 1400px;
+    position: relative;
     flex-direction: column;
   }
+
+  
 
   .largetext {
     font-size:70px;
   }
 
   .wavecontainer {
-    position:absolute;
+  position:absolute;
    bottom:0;
    width:100%;
     }
