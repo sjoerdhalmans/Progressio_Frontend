@@ -1,0 +1,29 @@
+.content {
+    display: flex;
+    flex: 1 0 auto;
+    margin: 120px auto 32px;
+    padding: 0 16px;
+    max-width: 1400px;
+    position: relative;
+    flex-direction: column;
+}
+
+.spacer {
+    width: 300px;
+}
+
+.imgdolphin {
+    float: left;
+}
+
+.imgrun {
+    margin-top: 250px;
+}
+
+.imgrun {
+    margin-top: 250px;
+}
+
+.bigtext {
+    font-size: xx-large;
+}

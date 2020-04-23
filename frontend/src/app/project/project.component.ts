@@ -17,6 +17,8 @@ export class ProjectComponent implements OnInit {
 
   projects = [];
 
+  
+
   async ngOnInit() {
   await this.projectService.getProjects().then(res => {
     this.projects = res;

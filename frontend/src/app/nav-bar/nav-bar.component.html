@@ -1,6 +1,7 @@
 <div class="toolbar" role="banner">
   <img width="40" src="../assets/progressio.png" />
   <h1 class="mt-3">Progressio</h1>
+  <button class="btn menubutton mt-1" routerLink="/" routerLinkActive="active" *ngIf="!auth.loggedIn">home</button>
   <button class="btn menubutton ml-5 mt-1" routerLink="/project" routerLinkActive="active" *ngIf="auth.loggedIn">Projects</button>
   <button class="btn menubutton mt-1" routerLink="/profile" routerLinkActive="active" *ngIf="auth.loggedIn">profile</button>
 

@@ -4,10 +4,11 @@ import { AuthGuard } from '../app/auth.guard'
 import { HomeComponent } from './home/home.component';
 import { ProjectComponent } from './project/project.component';
 import { ProfileComponent } from './profile/profile.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: HomeComponent,
   },
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: "**",
+    component: NotfoundComponent
   }
 ];
 

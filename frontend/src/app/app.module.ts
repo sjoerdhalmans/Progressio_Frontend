@@ -13,6 +13,8 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { ProjectComponent } from './project/project.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FooterComponent } from './footer/footer.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { ProjectoverviewComponent } from './projectoverview/projectoverview.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -64,6 +66,8 @@ const customNotifierOptions: NotifierOptions = {
     ProjectComponent,
     ProfileComponent,
     FooterComponent,
+    NotfoundComponent,
+    ProjectoverviewComponent,
   ],
   imports: [
     BrowserModule,

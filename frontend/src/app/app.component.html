@@ -326,8 +326,6 @@
 
 <html>
   <body>
-    <NavBarComponent></NavBarComponent>
-    <HomeComponent *ngIf="!auth.loggedIn"></HomeComponent>
     <AuthenticationComponent *ngIf="auth.loggedIn"></AuthenticationComponent>
     <router-outlet></router-outlet>
     <notifier-container></notifier-container>
