@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-projectoverview',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectoverviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  project
+
+  async ngOnInit() {
+    await this.route.queryParams.subscribe(params => {
+      this.project = params['name'];
+    });
   }
 
 }

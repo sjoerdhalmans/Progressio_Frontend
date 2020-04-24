@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { ProjectComponent } from './project/project.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { ProjectoverviewComponent } from './projectoverview/projectoverview.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'projectoverview',
+    component: ProjectoverviewComponent,
     canActivate: [AuthGuard]
   },
   {
