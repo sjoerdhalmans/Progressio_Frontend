@@ -3,7 +3,7 @@
 <div class="content">
   <div class="row" >
     <div class="col-4 d-flex justify-content-center project" *ngFor="let project of projects">
-      <div class="card" routerLink="/projectoverview" routerLinkActive="active">
+      <div class="card" routerLink="/projectoverview" (click)="assignProject(project)" routerLinkActive="active">
         <img src="../assets/progressio.png" alt="Avatar" style="width:100%">
         <div class="container">
           <h4><b>{{project.name}}</b></h4>

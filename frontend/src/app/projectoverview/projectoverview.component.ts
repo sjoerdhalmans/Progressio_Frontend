@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProjectmanagementService } from '../services/projectmanagement.service';
+import { ProjectDataService } from '../services/project-data.service';
 
 @Component({
   selector: 'app-projectoverview',
@@ -8,14 +10,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProjectoverviewComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  message: string;
+  constructor(private data: ProjectDataService, private route: ActivatedRoute, private projectService: ProjectmanagementService) { }
 
   project
+  backlog
 
   async ngOnInit() {
-    await this.route.queryParams.subscribe(params => {
-      this.project = params['name'];
-    });
-  }
+    await this.data.currentProject.subscribe(project => this.project = project);
+    await this.data.currentBacklog.subscribe(backlog => this.backlog = backlog);
 
+    console.log(this.project);
+  };
 }

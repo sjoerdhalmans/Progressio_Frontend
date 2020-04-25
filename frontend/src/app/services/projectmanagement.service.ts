@@ -14,7 +14,7 @@ export class ProjectmanagementService {
   public async getProjects(): Promise<Array<object>> {
     var projects;
     var sub;
-    var user
+    var user;
     await this.auth.getUser$().toPromise().then(res => {
       var userauth = JSON.stringify(res);
 
@@ -40,6 +40,22 @@ export class ProjectmanagementService {
       .then(res => {
         projects = res;
       })
-      return projects;
+    return projects;
+  }
+
+  public async getProjectById(projectid): Promise<Object> {
+    var project;
+
+    const body = <Object>{
+      Content: projectid,
+      Destination: { ApiMethod: "getProjectsById", ApiName: "Project" },
+    }
+
+    await this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
+      .then(res => {
+        project = res;
+      })
+
+      return project
   }
 }
