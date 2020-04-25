@@ -48,7 +48,7 @@ export class ProjectmanagementService {
 
     const body = <Object>{
       Content: projectid,
-      Destination: { ApiMethod: "getProjectsById", ApiName: "Project" },
+      Destination: { ApiMethod: "getProjectsById", ApiName: "Project" }
     }
 
     await this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
@@ -56,6 +56,23 @@ export class ProjectmanagementService {
         project = res;
       })
 
-      return project
+    return project
+  }
+
+  public async getBacklogById(projectid): Promise<Object> {
+    var backlog;
+
+    const body = <Object>{
+      Content: projectid,
+      Destination: { ApiMethod: "getBacklogById", ApiName: "Backlog" }
+    }
+
+    await this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
+      .then(res => {
+        backlog = res;
+      })
+
+    console.log(backlog)
+    return backlog
   }
 }

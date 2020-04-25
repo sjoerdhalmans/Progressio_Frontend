@@ -21,5 +21,11 @@ export class ProjectoverviewComponent implements OnInit {
     await this.data.currentBacklog.subscribe(backlog => this.backlog = backlog);
 
     console.log(this.project);
+    await this.backlog == this.projectService.getBacklogById(this.project.id);
+    console.log(this.backlog);
   };
+
+  consolethis() {
+    console.log(this.backlog);
+  }
 }
