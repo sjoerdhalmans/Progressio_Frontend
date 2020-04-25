@@ -16,6 +16,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ProjectoverviewComponent } from './projectoverview/projectoverview.component';
 import { BacklogComponent } from './backlog/backlog.component';
+import { ProjectNavBarComponent } from './project-nav-bar/project-nav-bar.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -70,6 +71,7 @@ const customNotifierOptions: NotifierOptions = {
     NotfoundComponent,
     ProjectoverviewComponent,
     BacklogComponent,
+    ProjectNavBarComponent,
   ],
   imports: [
     BrowserModule,
