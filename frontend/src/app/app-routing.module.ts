@@ -32,7 +32,7 @@ const routes: Routes = [
     path: 'backlog',
     component: BacklogComponent,
     canActivate: [AuthGuard]
-  }
+  },
   {
     path: "**",
     component: NotfoundComponent

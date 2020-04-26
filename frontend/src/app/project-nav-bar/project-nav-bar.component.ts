@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
 
 @Component({
-  selector: 'app-project-nav-bar',
+  selector: 'ProjectNavBarComponent',
   templateUrl: './project-nav-bar.component.html',
   styleUrls: ['./project-nav-bar.component.css']
 })
 export class ProjectNavBarComponent implements OnInit {
+  profile: any = null;
 
-  constructor() { }
+  constructor(public auth: AuthService, public user : UserService) { 
+   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.auth.userProfile$.subscribe(
+      profile => this.profile = profile
+    );
   }
 
 }

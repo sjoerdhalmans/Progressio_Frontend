@@ -35,9 +35,11 @@ export class ProjectComponent implements OnInit {
 
   }
 
-  assignProject(project) {
+  async assignProject(project) {
+    var backlog = await this.projectService.getBacklogById(project.id)
     console.log("testing proj")
     console.log(project)
     this.data.changeProject(project);
+    this.data.changeBacklog(backlog);
   }
 }

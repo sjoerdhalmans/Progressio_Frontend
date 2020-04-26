@@ -1,4 +1,6 @@
-<NavBarComponent></NavBarComponent>
+<ProjectNavBarComponent></ProjectNavBarComponent>
 <div class="content">
-    <button (click)="consolethis"></button>
+    <button (click)="consolethis()">console log current project</button>
+    <p>{{this.backlog}}</p>
+    <button (click)="consolethat()">console log current backlog</button>
 </div>

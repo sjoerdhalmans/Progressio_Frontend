@@ -19,13 +19,13 @@ export class ProjectoverviewComponent implements OnInit {
   async ngOnInit() {
     await this.data.currentProject.subscribe(project => this.project = project);
     await this.data.currentBacklog.subscribe(backlog => this.backlog = backlog);
-
-    console.log(this.project);
-    await this.backlog == this.projectService.getBacklogById(this.project.id);
-    console.log(this.backlog);
   };
 
   consolethis() {
+    console.log(this.project);
+  }
+
+  consolethat() {
     console.log(this.backlog);
   }
 }
