@@ -5,3 +5,19 @@
     max-width: 1400px;
     flex-direction: column;
   }
+
+  .large-text {
+    font-size: 80px;
+  }
+
+  .information-chunk {
+    margin-top: 50px;
+    width: 40%;
+    align-self: center;
+  }
+
+  img {
+    height: 10%;
+    width: 10%;
+    align-self: center;
+  }

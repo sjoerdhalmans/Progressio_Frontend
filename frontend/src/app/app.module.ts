@@ -17,6 +17,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { ProjectoverviewComponent } from './projectoverview/projectoverview.component';
 import { BacklogComponent } from './backlog/backlog.component';
 import { ProjectNavBarComponent } from './project-nav-bar/project-nav-bar.component';
+import { TaskboardComponent } from './taskboard/taskboard.component';
+import { EpicComponent } from './epic/epic.component';
+import { NgbdModalBasic } from './ngbd-modal-basic/ngbd-modal-basic.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -72,6 +75,9 @@ const customNotifierOptions: NotifierOptions = {
     ProjectoverviewComponent,
     BacklogComponent,
     ProjectNavBarComponent,
+    TaskboardComponent,
+    EpicComponent,
+    NgbdModalBasic
   ],
   imports: [
     BrowserModule,

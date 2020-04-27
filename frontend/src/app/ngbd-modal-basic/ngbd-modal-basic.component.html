@@ -1,0 +1,21 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add new epic</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form (submit)="onSubmit(name.value, description.value)">
+        <div class="modal-body">
+
+            <input #name placeholder="name">
+            <input #description placeholder="content">
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" type="submit" class="btn btn-outline-dark" data-dismiss="modal" >Save</button>
+        </div>
+    </form>
+</ng-template>
+
+<button class="btn btn-danger mr-3 addepic" (click)="open(content)">Add Epic +</button>

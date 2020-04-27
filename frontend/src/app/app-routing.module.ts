@@ -7,6 +7,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ProjectoverviewComponent } from './projectoverview/projectoverview.component';
 import { BacklogComponent } from './backlog/backlog.component';
+import { EpicComponent } from './epic/epic.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: 'backlog',
     component: BacklogComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'epics',
+    component: EpicComponent,
     canActivate: [AuthGuard]
   },
   {

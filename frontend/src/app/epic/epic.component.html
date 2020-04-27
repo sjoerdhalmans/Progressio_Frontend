@@ -1,0 +1,17 @@
+<ProjectNavBarComponent></ProjectNavBarComponent>
+<div class="ml-5 category">
+    <h1><b>EPICS</b></h1>
+</div>
+<div class="content">
+    <div class="row">
+        <div class="col-4">
+            <h2><b>name</b></h2>
+        </div>
+    </div>
+
+    <div class="row epic" *ngFor="let epic of backlog.epics">
+        <div class="col-4">{{epic.name}}</div>
+    </div>
+
+    <ModalComponent></ModalComponent>
+</div>

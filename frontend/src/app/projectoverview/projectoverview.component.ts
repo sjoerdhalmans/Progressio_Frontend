@@ -11,7 +11,7 @@ import { ProjectDataService } from '../services/project-data.service';
 export class ProjectoverviewComponent implements OnInit {
 
   message: string;
-  constructor(private data: ProjectDataService, private route: ActivatedRoute, private projectService: ProjectmanagementService) { }
+  constructor(private data: ProjectDataService , private projectService: ProjectmanagementService) { }
 
   project
   backlog
