@@ -88,4 +88,20 @@ export class ProjectmanagementService {
 
     return epic
   }
+  
+  public async updateEpic(epic): Promise<Object> {
+    console.log(epic);
+
+    const body = <Object>{
+      Content: epic,
+      Destination: { ApiMethod: "updateEpic", ApiName: "Backlog" }
+    }
+
+    await this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
+      .then(res => {
+        epic = res;
+      })
+
+    return epic
+  }
 }

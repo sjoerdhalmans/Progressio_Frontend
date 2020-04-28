@@ -19,4 +19,8 @@ export class EpicComponent implements OnInit {
     await this.data.currentBacklog.subscribe(backlog => this.backlog = backlog);
   }
 
+  consoletest() {
+    console.log(this.backlog)
+    console.log(this.project)
+  }
 }

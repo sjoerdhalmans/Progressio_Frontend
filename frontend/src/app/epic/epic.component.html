@@ -11,7 +11,9 @@
 
     <div class="row epic" *ngFor="let epic of backlog.epics">
         <div class="col-4">{{epic.name}}</div>
+        <epicupdatemodal class="col-6" [epicid]="epic.id"></epicupdatemodal>
     </div>
 
     <ModalComponent></ModalComponent>
+    <button (click)="consoletest()"></button>
 </div>

@@ -19,7 +19,8 @@ import { BacklogComponent } from './backlog/backlog.component';
 import { ProjectNavBarComponent } from './project-nav-bar/project-nav-bar.component';
 import { TaskboardComponent } from './taskboard/taskboard.component';
 import { EpicComponent } from './epic/epic.component';
-import { NgbdModalBasic } from './ngbd-modal-basic/ngbd-modal-basic.component';
+import { NgbdModalBasic } from './modals/ngbd-modal-basic/ngbd-modal-basic.component';
+import { EpicUpdateModalComponent } from './modals/epic-update-modal/epic-update-modal.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -77,7 +78,8 @@ const customNotifierOptions: NotifierOptions = {
     ProjectNavBarComponent,
     TaskboardComponent,
     EpicComponent,
-    NgbdModalBasic
+    NgbdModalBasic,
+    EpicUpdateModalComponent
   ],
   imports: [
     BrowserModule,
