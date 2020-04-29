@@ -104,4 +104,34 @@ export class ProjectmanagementService {
 
     return epic
   }
+
+  public async saveStory(story): Promise<Object> {
+    const body = <Object>{
+      Content: story,
+      Destination: { ApiMethod: "addStory", ApiName: "Backlog" }
+    }
+
+    await this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
+      .then(res => {
+        story = res;
+      })
+
+    return story
+  }
+  
+  public async updateStory(epic): Promise<Object> {
+    console.log(epic);
+
+    const body = <Object>{
+      Content: epic,
+      Destination: { ApiMethod: "updateStory", ApiName: "Backlog" }
+    }
+
+    await this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
+      .then(res => {
+        epic = res;
+      })
+
+    return epic
+  }
 }

@@ -1,33 +1,28 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ProjectDataService } from 'src/app/services/project-data.service';
 import { ProjectmanagementService } from 'src/app/services/projectmanagement.service';
 
-interface Epic {
+interface Story {
   name: string;
   description: string;
   projectId: number;
-  id;
 }
 
 @Component({
-  selector: 'epicupdatemodal',
-  templateUrl: './epic-update-modal.component.html',
-  styleUrls: ['./epic-update-modal.component.css']
+  selector: 'CreateStoryModal',
+  templateUrl: './story-create-modal.component.html',
+  styleUrls: ['./story-create-modal.component.css']
 })
-
-export class EpicUpdateModalComponent implements OnInit {
-  @Input() epicid;
+export class StoryCreateModalComponent implements OnInit {
 
   project;
+  handlingEpic
   closeResult: string;
-  handlingEpic: number;
-
 
   constructor(private modalService: NgbModal, private data: ProjectDataService, private projectService: ProjectmanagementService) { }
 
   async ngOnInit() {
-    this.handlingEpic = this.epicid;
     await this.data.currentProject.subscribe(project => this.project = project);
   }
 
@@ -40,16 +35,13 @@ export class EpicUpdateModalComponent implements OnInit {
   }
 
   async onSubmit(enteredName: string, content: string) {
-    console.log("submitting");
-    const epic: Epic = {
+    const story: Story = {
       name: enteredName,
       description: content,
-      projectId: this.project.id,
-      id: this.handlingEpic
+      projectId: this.project.id
     }
 
-    console.log(epic)
-    await this.projectService.updateEpic(epic);
+    this.handlingEpic == await this.projectService.saveStory(story);
     var backlog = await this.projectService.getBacklogById(this.project.id)
     await this.data.changeBacklog(backlog);
   }
@@ -63,5 +55,4 @@ export class EpicUpdateModalComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-
 }

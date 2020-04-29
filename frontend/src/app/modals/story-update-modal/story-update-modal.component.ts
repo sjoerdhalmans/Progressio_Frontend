@@ -3,33 +3,31 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ProjectDataService } from 'src/app/services/project-data.service';
 import { ProjectmanagementService } from 'src/app/services/projectmanagement.service';
 
-interface Epic {
+interface Story {
   name: string;
   description: string;
   projectId: number;
-  id;
+  id: number;
 }
 
 @Component({
-  selector: 'epicupdatemodal',
-  templateUrl: './epic-update-modal.component.html',
-  styleUrls: ['./epic-update-modal.component.css']
+  selector: 'storyupdatemodal',
+  templateUrl: './story-update-modal.component.html',
+  styleUrls: ['./story-update-modal.component.css']
 })
-
-export class EpicUpdateModalComponent implements OnInit {
-  @Input() epicid;
+export class StoryUpdateModalComponent implements OnInit {
+  @Input() storyid;
 
   project;
+  handlingStory
   closeResult: string;
-  handlingEpic: number;
-
 
   constructor(private modalService: NgbModal, private data: ProjectDataService, private projectService: ProjectmanagementService) { }
 
   async ngOnInit() {
-    this.handlingEpic = this.epicid;
+    this.handlingStory = this.storyid;
     await this.data.currentProject.subscribe(project => this.project = project);
-  }
+    }
 
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
@@ -41,15 +39,15 @@ export class EpicUpdateModalComponent implements OnInit {
 
   async onSubmit(enteredName: string, content: string) {
     console.log("submitting");
-    const epic: Epic = {
+    const story: Story = {
       name: enteredName,
       description: content,
       projectId: this.project.id,
-      id: this.handlingEpic
+      id: this.handlingStory
     }
 
-    console.log(epic)
-    await this.projectService.updateEpic(epic);
+    console.log(story)
+    await this.projectService.updateStory(story);
     var backlog = await this.projectService.getBacklogById(this.project.id)
     await this.data.changeBacklog(backlog);
   }
@@ -63,5 +61,4 @@ export class EpicUpdateModalComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-
 }

@@ -21,6 +21,8 @@ import { TaskboardComponent } from './taskboard/taskboard.component';
 import { EpicComponent } from './epic/epic.component';
 import { NgbdModalBasic } from './modals/ngbd-modal-basic/ngbd-modal-basic.component';
 import { EpicUpdateModalComponent } from './modals/epic-update-modal/epic-update-modal.component';
+import { StoryCreateModalComponent } from './modals/story-create-modal/story-create-modal.component';
+import { StoryUpdateModalComponent } from './modals/story-update-modal/story-update-modal.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -79,7 +81,9 @@ const customNotifierOptions: NotifierOptions = {
     TaskboardComponent,
     EpicComponent,
     NgbdModalBasic,
-    EpicUpdateModalComponent
+    EpicUpdateModalComponent,
+    StoryCreateModalComponent,
+    StoryUpdateModalComponent
   ],
   imports: [
     BrowserModule,

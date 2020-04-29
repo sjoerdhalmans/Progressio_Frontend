@@ -1,1 +1,19 @@
-<p>backlog works!</p>
+<ProjectNavBarComponent></ProjectNavBarComponent>
+<div class="ml-5 category">
+    <h1><b>Backlog</b></h1>
+</div>
+<div class="content">
+    <div class="row">
+        <div class="col-4">
+            <h2><b>name</b></h2>
+        </div>
+    </div>
+
+    <div class="row epic" *ngFor="let story of backlog.lonestories">
+        <div class="col-4">{{story.name}}</div>
+        <storyupdatemodal class="col-6" [storyid]="story.id"></storyupdatemodal>
+    </div>
+
+    <CreateStoryModal></CreateStoryModal>
+    <button (click)="consoletest()"></button>
+</div>
