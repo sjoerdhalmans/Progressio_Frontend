@@ -3,10 +3,13 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ProjectDataService } from 'src/app/services/project-data.service';
 import { ProjectmanagementService } from 'src/app/services/projectmanagement.service';
 
+
 interface Story {
   name: string;
   content: string;
   projectId: number;
+  id: number;
+  priority: number;
 }
 
 @Component({
@@ -17,13 +20,18 @@ interface Story {
 export class StoryCreateModalComponent implements OnInit {
 
   project;
-  handlingEpic
+  backlog;
+  handlingEpic;
   closeResult: string;
+  storyAmount: number;
+  stories: Array<Story>;
 
   constructor(private modalService: NgbModal, private data: ProjectDataService, private projectService: ProjectmanagementService) { }
 
   async ngOnInit() {
     await this.data.currentProject.subscribe(project => this.project = project);
+    await this.data.currentBacklog.subscribe(backlog => this.backlog = backlog);
+    await this.data.currentStories.subscribe(stories => this.stories = stories);
   }
 
   open(content) {
@@ -38,11 +46,12 @@ export class StoryCreateModalComponent implements OnInit {
     const story: Story = {
       name: enteredName,
       content: content,
-      projectId: this.project.id
+      projectId: this.project.id,
+      id: null,
+      priority: null
     }
-    console.log(story)
 
-    this.handlingEpic == await this.projectService.saveStory(story);
+    this.handlingEpic = await this.projectService.saveStory(story);
     var backlog = await this.projectService.getBacklogById(this.project.id)
     await this.data.changeBacklog(backlog);
   }

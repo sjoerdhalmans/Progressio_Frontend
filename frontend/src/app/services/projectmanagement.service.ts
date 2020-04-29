@@ -3,13 +3,22 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
 import { JsonPipe } from '@angular/common';
+import { ProjectDataService } from './project-data.service';
+
+interface Story {
+  name: string;
+  content: string;
+  projectId: number;
+  id: number;
+  priority: number;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectmanagementService {
 
-  constructor(public auth: AuthService, private http: HttpClient, private userService: UserService) { }
+  constructor(public auth: AuthService, private http: HttpClient, private userService: UserService, private data: ProjectDataService) { }
 
   public async getProjects(): Promise<Array<object>> {
     var projects;
@@ -72,6 +81,17 @@ export class ProjectmanagementService {
         backlog = res;
       })
 
+      let stories: Story[] = [];
+
+    await backlog.epics.forEach(element => {
+      console.log("teststory")
+      console.log(stories)
+      stories = stories.concat(element.stories);
+    });
+    stories = await stories.concat(backlog.lonestories)
+    await stories.sort((a, b) => (a.priority > b.priority) ? 1 : -1)
+    await this.data.changeStories(stories);
+
     return backlog
   }
 
@@ -88,7 +108,7 @@ export class ProjectmanagementService {
 
     return epic
   }
-  
+
   public async updateEpic(epic): Promise<Object> {
     console.log(epic);
 
@@ -118,7 +138,7 @@ export class ProjectmanagementService {
 
     return story
   }
-  
+
   public async updateStory(epic): Promise<Object> {
     console.log(epic);
 

@@ -26,16 +26,18 @@ export class BacklogComponent implements OnInit {
   async ngOnInit() {
     await this.data.currentProject.subscribe(project => this.project = project);
     await this.data.currentBacklog.subscribe(backlog => this.backlog = backlog);
-    await this.getEpicStories();
-     this.stories = await this.stories.concat(this.backlog.lonestories)
-    await this.stories.sort((a, b) => (a.priority > b.priority) ? 1 : -1)
+    await this.data.currentStories.subscribe(stories => this.stories = stories);
+    // await this.getEpicStories();
+    //  this.stories = await this.stories.concat(this.backlog.lonestories)
+    // await this.stories.sort((a, b) => (a.priority > b.priority) ? 1 : -1)
+    // await this.data.changeStories(this.stories);
   }
 
-  getEpicStories() {
-    this.backlog.epics.forEach(element => {
-      this.stories = this.stories.concat(element.stories);
-    });
-  }
+  // getEpicStories() {
+  //   this.backlog.epics.forEach(element => {
+  //     this.stories = this.stories.concat(element.stories);
+  //   });
+  // }
 
   consoletest() {
     console.log(this.backlog)

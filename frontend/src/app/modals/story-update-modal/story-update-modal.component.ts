@@ -8,6 +8,7 @@ interface Story {
   content: string;
   projectId: number;
   id: number;
+  priority: number;
 }
 
 @Component({
@@ -21,12 +22,14 @@ export class StoryUpdateModalComponent implements OnInit {
   project;
   handlingStory
   closeResult: string;
+  stories: Array<Story>;
 
   constructor(private modalService: NgbModal, private data: ProjectDataService, private projectService: ProjectmanagementService) { }
 
   async ngOnInit() {
     this.handlingStory = this.storyid;
     await this.data.currentProject.subscribe(project => this.project = project);
+    await this.data.currentStories.subscribe(stories => this.stories = stories);
     }
 
   open(content) {
@@ -43,7 +46,8 @@ export class StoryUpdateModalComponent implements OnInit {
       name: enteredName,
       content: content,
       projectId: this.project.id,
-      id: this.handlingStory
+      id: this.handlingStory,
+      priority: null
     }
 
     console.log(story)
