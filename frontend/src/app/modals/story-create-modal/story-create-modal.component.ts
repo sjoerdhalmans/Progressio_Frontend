@@ -5,7 +5,7 @@ import { ProjectmanagementService } from 'src/app/services/projectmanagement.ser
 
 interface Story {
   name: string;
-  description: string;
+  content: string;
   projectId: number;
 }
 
@@ -37,9 +37,10 @@ export class StoryCreateModalComponent implements OnInit {
   async onSubmit(enteredName: string, content: string) {
     const story: Story = {
       name: enteredName,
-      description: content,
+      content: content,
       projectId: this.project.id
     }
+    console.log(story)
 
     this.handlingEpic == await this.projectService.saveStory(story);
     var backlog = await this.projectService.getBacklogById(this.project.id)

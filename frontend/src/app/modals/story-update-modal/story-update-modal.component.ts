@@ -5,7 +5,7 @@ import { ProjectmanagementService } from 'src/app/services/projectmanagement.ser
 
 interface Story {
   name: string;
-  description: string;
+  content: string;
   projectId: number;
   id: number;
 }
@@ -41,7 +41,7 @@ export class StoryUpdateModalComponent implements OnInit {
     console.log("submitting");
     const story: Story = {
       name: enteredName,
-      description: content,
+      content: content,
       projectId: this.project.id,
       id: this.handlingStory
     }

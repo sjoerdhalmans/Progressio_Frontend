@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <div class="row epic" *ngFor="let story of backlog.lonestories">
+    <div class="row epic" *ngFor="let story of stories">
         <div class="col-4">{{story.name}}</div>
         <storyupdatemodal class="col-6" [storyid]="story.id"></storyupdatemodal>
     </div>
