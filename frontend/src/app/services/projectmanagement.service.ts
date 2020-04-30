@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 import { UserService } from './user.service';
 import { JsonPipe } from '@angular/common';
 import { ProjectDataService } from './project-data.service';
+import { promise } from 'protractor';
 
 interface Story {
   name: string;
@@ -52,20 +53,19 @@ export class ProjectmanagementService {
     return projects;
   }
 
-  public async getProjectById(projectid): Promise<Object> {
-    var project;
+  public async getProjectUsers(Users): Promise<Array<Object>> {
+    let fullusers = [];
 
-    const body = <Object>{
-      Content: projectid,
-      Destination: { ApiMethod: "getProjectsById", ApiName: "Project" }
+    console.log(Users);
+    console.log(Users);
+    for (const user of Users) {
+      var founduser = await this.userService.getUserById(user.user);
+      fullusers = await fullusers.concat(founduser);
     }
 
-    await this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
-      .then(res => {
-        project = res;
-      })
-
-    return project
+    console.log(fullusers);
+    console.log("yuuuuuuu");
+    return fullusers;
   }
 
   public async getBacklogById(projectid): Promise<Object> {
@@ -81,7 +81,7 @@ export class ProjectmanagementService {
         backlog = res;
       })
 
-      let stories: Story[] = [];
+    let stories: Story[] = [];
 
     await backlog.epics.forEach(element => {
       console.log("teststory")
@@ -153,5 +153,33 @@ export class ProjectmanagementService {
       })
 
     return epic
+  }
+
+  public async deleteStory(storyid) {
+    console.log("should delete this" + storyid)
+    const body = <Object>{
+      Content: storyid,
+      Destination: { ApiMethod: "deleteStory", ApiName: "Backlog" }
+    }
+
+    await this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
+  }
+
+  public async deleteEpic(epicid) {
+    const body = <Object>{
+      Content: epicid,
+      Destination: { ApiMethod: "deleteEpic", ApiName: "Backlog" }
+    }
+
+    await this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
+  }
+
+  public async deleteTask(taskid) {
+    const body = <Object>{
+      Content: taskid,
+      Destination: { ApiMethod: "deleteTask", ApiName: "Backlog" }
+    }
+
+    await this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
   }
 }

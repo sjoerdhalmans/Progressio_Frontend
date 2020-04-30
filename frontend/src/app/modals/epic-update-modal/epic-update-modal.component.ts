@@ -64,4 +64,11 @@ export class EpicUpdateModalComponent implements OnInit {
     }
   }
 
+  public async deleteEpic() {
+    console.log("test")
+    await this.projectService.deleteEpic(this.handlingEpic);
+    var backlog = await this.projectService.getBacklogById(this.project.id)
+    await this.data.changeBacklog(backlog);
+    this.modalService.dismissAll();
+  }
 }

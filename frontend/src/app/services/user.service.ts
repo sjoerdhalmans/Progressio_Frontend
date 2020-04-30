@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '../services/auth.service'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { promise } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,23 @@ export class UserService {
           console.log(user)
         }
       })
-      return user
+    return user
+  }
+
+  public async getUserById(userid): Promise<Object> {
+    var user
+
+    const body = <Object>{
+      Content: userid,
+      Destination: { ApiMethod: "getUserById", ApiName: "User" }
+    }
+
+    await this.http.post <Object>('http://localhost:1957/api/gateway', body).toPromise()
+      .then(res => {
+        user = res;
+      })
+
+    return user;
   }
 
   private myFunc: () => void;

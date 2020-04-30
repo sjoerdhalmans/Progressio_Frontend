@@ -12,8 +12,13 @@
             <input #description placeholder="content">
 
         </div>
-        <div class="modal-footer">
-            <button type="button" type="submit" class="btn btn-outline-dark" data-dismiss="modal">Save</button>
+        <div class="row">
+            <div class="modal-footer col-6">
+                <button type="button" type="submit" class="btn btn-outline-dark" data-dismiss="modal">Save</button>
+            </div>
+            <div class="modal-footer col-6">
+                <button type="button" class="btn btn-outline-dark" data-dismiss="modal" (click)="deleteEpic()">Delete</button>
+            </div>
         </div>
     </form>
 </ng-template>

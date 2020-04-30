@@ -23,6 +23,7 @@ export class StoryUpdateModalComponent implements OnInit {
   handlingStory
   closeResult: string;
   stories: Array<Story>;
+  hideModal: boolean = false;
 
   constructor(private modalService: NgbModal, private data: ProjectDataService, private projectService: ProjectmanagementService) { }
 
@@ -64,5 +65,13 @@ export class StoryUpdateModalComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
+  }
+
+  public async deleteStory() {
+    console.log("test")
+    await this.projectService.deleteStory(this.handlingStory);
+    var backlog = await this.projectService.getBacklogById(this.project.id)
+    await this.data.changeBacklog(backlog);
+    this.modalService.dismissAll();
   }
 }
