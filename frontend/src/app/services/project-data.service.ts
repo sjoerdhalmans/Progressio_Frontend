@@ -17,10 +17,12 @@ export class ProjectDataService {
   private Project = new BehaviorSubject<Object>(empty);
   private ProjectBacklog = new BehaviorSubject<Object>(empty);
   private Stories = new BehaviorSubject<Array<Story>>(null);
+  private Projects = new BehaviorSubject<Array<Object>>(null);
 
   currentProject = this.Project.asObservable();
   currentBacklog = this.ProjectBacklog.asObservable();
   currentStories = this.Stories.asObservable();
+  currentProjects = this.Projects.asObservable();
 
   constructor() { }
 
@@ -34,5 +36,9 @@ export class ProjectDataService {
 
   changeStories(Stories : Array<Story>) {
     this.Stories.next(Stories);
+  }
+
+  changeProjects(projects: Array<Object>) {
+    this.Projects.next(projects);
   }
 }

@@ -1,0 +1,23 @@
+<ng-template #content let-modal >
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">View story</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form (submit)="onSubmit(projectcode.value)">
+        <div class="modal-body">
+
+            <input #projectcode placeholder="projectcode">
+
+        </div>
+        <div class="row">
+            <div class="modal-footer col-6">
+                <button type="button" type="submit" class="btn btn-outline-dark" data-dismiss="modal">Create</button>
+            </div>
+        </div>
+
+    </form>
+</ng-template>
+
+<button class="btn btn-danger mr-3 addepic" (click)="open(content)">Create Project</button>

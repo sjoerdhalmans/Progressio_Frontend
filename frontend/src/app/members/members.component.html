@@ -1,0 +1,15 @@
+<ProjectNavBarComponent></ProjectNavBarComponent>
+<div class="ml-5 category">
+    <h1><b>Members</b></h1>
+</div>
+<div class="content">
+    <div class="row">
+        <div class="col-4">
+            <h2><b>name</b></h2>
+        </div>
+    </div>
+
+    <div class="row epic" *ngFor="let user of project.users">
+        <div class="col-4">{{user.username}}</div>
+    </div>
+</div>

@@ -23,6 +23,9 @@ import { NgbdModalBasic } from './modals/ngbd-modal-basic/ngbd-modal-basic.compo
 import { EpicUpdateModalComponent } from './modals/epic-update-modal/epic-update-modal.component';
 import { StoryCreateModalComponent } from './modals/story-create-modal/story-create-modal.component';
 import { StoryUpdateModalComponent } from './modals/story-update-modal/story-update-modal.component';
+import { MembersComponent } from './members/members.component';
+import { ProjectJoinModalComponent } from './modals/project-join-modal/project-join-modal.component';
+import { ProjectCreateModalComponent } from './modals/project-create-modal/project-create-modal.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -83,7 +86,10 @@ const customNotifierOptions: NotifierOptions = {
     NgbdModalBasic,
     EpicUpdateModalComponent,
     StoryCreateModalComponent,
-    StoryUpdateModalComponent
+    StoryUpdateModalComponent,
+    MembersComponent,
+    ProjectJoinModalComponent,
+    ProjectCreateModalComponent
   ],
   imports: [
     BrowserModule,

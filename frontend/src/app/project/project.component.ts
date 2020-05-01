@@ -21,14 +21,10 @@ export class ProjectComponent implements OnInit {
 
 
   async ngOnInit() {
+    await this.data.currentProjects.subscribe(projectlist => this.projects = projectlist)
     await this.projectService.getProjects().then(res => {
-      this.projects = res;
+      this.data.changeProjects(res);
     })
-
-
-    console.log("test");
-
-    console.log(this.projects);
   }
 
   async ngOnDestroy() {
@@ -37,10 +33,8 @@ export class ProjectComponent implements OnInit {
 
   async assignProject(project) {
     var backlog = await this.projectService.getBacklogById(project.id)
-    console.log("testing proj")
-    console.log(project)
     var users = await this.projectService.getProjectUsers(project.users);
-    console.log(users);
+    project.users = users;
     this.data.changeProject(project);
     this.data.changeBacklog(backlog);
   }

@@ -56,15 +56,11 @@ export class ProjectmanagementService {
   public async getProjectUsers(Users): Promise<Array<Object>> {
     let fullusers = [];
 
-    console.log(Users);
-    console.log(Users);
     for (const user of Users) {
       var founduser = await this.userService.getUserById(user.user);
       fullusers = await fullusers.concat(founduser);
     }
 
-    console.log(fullusers);
-    console.log("yuuuuuuu");
     return fullusers;
   }
 
@@ -93,6 +89,54 @@ export class ProjectmanagementService {
     await this.data.changeStories(stories);
 
     return backlog
+  }
+
+  public async joinProject(projectcode): Promise<Object> {
+    var joinedUser
+    this.auth.getUser$().toPromise().then(async res => {
+      var projects
+      var foundproject
+      var json = JSON.stringify(res)
+      var newjson = JSON.parse(json);
+      var users
+      var user
+      await this.userService.getUser(newjson.sub).then(res => {
+        users = res;
+      });
+  
+      await this.getAllProjects().then(res => {
+        projects = res;
+      });
+      user = users[0];
+      console.log("these are the projects")
+      console.log(projects);
+      console.log(user);
+      foundproject = await projects.find(x => x.projectCode == projectcode)
+      console.log(projectcode)
+      console.log(foundproject)
+  
+      const body = <Object>{
+        Content: { user: user.id, projectId: foundproject.id },
+        Destination: { ApiMethod: "addUserToProject", ApiName: "Project" }
+      }
+
+      console.log("Should now be adding user")
+      this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
+      .then(res => {
+        joinedUser = res;
+        this.updateProjects()
+      })
+    })
+    return joinedUser;
+  }
+
+  private async updateProjects() {
+    await this.getProjects().then(res => {
+      console.log("starting update");
+      console.log(res);
+      this.data.changeProjects(res);
+      console.log("just updated");
+    })
   }
 
   public async saveEpic(epic): Promise<Object> {
@@ -181,5 +225,20 @@ export class ProjectmanagementService {
     }
 
     await this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
+  }
+
+  public async getAllProjects(): Promise<Array<object>> {
+    const body = <Object>{
+      Content: "",
+      Destination: { ApiMethod: "getAllProjects", ApiName: "Project"}
+    }
+    var projects
+
+    await this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise().then(res => {
+      projects = res
+    })
+
+    console.log(projects)
+    return projects;
   }
 }

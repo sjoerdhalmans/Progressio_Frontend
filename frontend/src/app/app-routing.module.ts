@@ -8,6 +8,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { ProjectoverviewComponent } from './projectoverview/projectoverview.component';
 import { BacklogComponent } from './backlog/backlog.component';
 import { EpicComponent } from './epic/epic.component';
+import { MembersComponent } from './members/members.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,11 @@ const routes: Routes = [
   {
     path: 'epics',
     component: EpicComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'members',
+    component: MembersComponent,
     canActivate: [AuthGuard]
   },
   {
