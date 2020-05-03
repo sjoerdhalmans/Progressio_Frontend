@@ -1,7 +1,10 @@
 <NavBarComponent></NavBarComponent>
 
 <div class="content">
-  <ProjectJoinModal></ProjectJoinModal>
+  <div class="row">
+    <ProjectJoinModal class="col-5"></ProjectJoinModal>
+    <ProjectCreateModal class="col-5"></ProjectCreateModal>
+  </div>
   <div class="row">
     <div class="col-4 d-flex justify-content-center project" *ngFor="let project of projects">
       <div class="card" routerLink="/projectoverview" (click)="assignProject(project)" routerLinkActive="active">

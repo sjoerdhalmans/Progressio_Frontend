@@ -108,19 +108,13 @@ export class ProjectmanagementService {
         projects = res;
       });
       user = users[0];
-      console.log("these are the projects")
-      console.log(projects);
-      console.log(user);
       foundproject = await projects.find(x => x.projectCode == projectcode)
-      console.log(projectcode)
-      console.log(foundproject)
   
       const body = <Object>{
         Content: { user: user.id, projectId: foundproject.id },
         Destination: { ApiMethod: "addUserToProject", ApiName: "Project" }
       }
 
-      console.log("Should now be adding user")
       this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
       .then(res => {
         joinedUser = res;
@@ -128,6 +122,20 @@ export class ProjectmanagementService {
       })
     })
     return joinedUser;
+  }
+
+  public async createProject(project) {
+    const body = <Object>{
+      Content: { name: project },
+      Destination: { ApiMethod: "addProject", ApiName: "Project" }
+    }
+
+    await this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
+      .then(res => {
+        project = res;
+      })
+
+    return project
   }
 
   private async updateProjects() {

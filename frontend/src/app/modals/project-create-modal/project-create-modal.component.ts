@@ -25,8 +25,13 @@ export class ProjectCreateModalComponent implements OnInit {
     });
   }
 
-  async onSubmit(projectcode) {
+  async onSubmit(projectname) {
+    var projectCode;
+    await this.projectService.createProject(projectname).then(res => {
+      projectCode = res.projectCode;
+    });
     
+    await this.projectService.joinProject(projectCode);
   }
 
   private getDismissReason(reason: any): string {
