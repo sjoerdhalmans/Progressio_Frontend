@@ -28,6 +28,13 @@
       margin-top: 80px;
   }
 
+  .joinbutton {
+    background-color: #990000;
+    border-color: #990000;
+    width: 90px;
+  }
+
+
   .addepic {
     background-color: #990000;
     border-color: #990000;
