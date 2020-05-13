@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProjectCreateModalComponent } from './project-create-modal.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpHandler, HttpClient } from '@angular/common/http';
 
 describe('ProjectCreateModalComponent', () => {
   let component: ProjectCreateModalComponent;
@@ -8,7 +10,11 @@ describe('ProjectCreateModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectCreateModalComponent ]
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [ ProjectCreateModalComponent ],
+      providers: [HttpClient, HttpHandler]
     })
     .compileComponents();
   }));

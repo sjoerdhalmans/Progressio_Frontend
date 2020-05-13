@@ -10,7 +10,9 @@ import { ProjectmanagementService } from '../services/projectmanagement.service'
 export class EpicComponent implements OnInit {
 
   project
-  backlog
+  backlog: Object = {
+    epics: []
+  }
   
   constructor(private data: ProjectDataService , private projectService: ProjectmanagementService) { }
 

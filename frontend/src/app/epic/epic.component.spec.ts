@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EpicComponent } from './epic.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('EpicComponent', () => {
   let component: EpicComponent;
@@ -8,7 +10,11 @@ describe('EpicComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EpicComponent ]
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [ EpicComponent ],
+      providers: [HttpClient, HttpHandler]
     })
     .compileComponents();
   }));

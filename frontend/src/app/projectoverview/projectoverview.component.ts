@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectmanagementService } from '../services/projectmanagement.service';
 import { ProjectDataService } from '../services/project-data.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 @Component({
   selector: 'app-projectoverview',
   templateUrl: './projectoverview.component.html',
-  styleUrls: ['./projectoverview.component.css']
+  styleUrls: ['./projectoverview.component.css'],
+  providers: [HttpClient]
 })
 export class ProjectoverviewComponent implements OnInit {
 

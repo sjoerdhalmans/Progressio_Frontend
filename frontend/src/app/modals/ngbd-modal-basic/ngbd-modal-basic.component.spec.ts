@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NgbdModalBasic } from './ngbd-modal-basic.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpHandler, HttpClient } from '@angular/common/http';
 
 describe('NgbdModalBasicComponent', () => {
   let component: NgbdModalBasic;
@@ -8,7 +10,11 @@ describe('NgbdModalBasicComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NgbdModalBasic ]
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [ NgbdModalBasic ],
+      providers: [HttpClient, HttpHandler]
     })
     .compileComponents();
   }));

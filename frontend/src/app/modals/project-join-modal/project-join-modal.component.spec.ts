@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProjectJoinModalComponent } from './project-join-modal.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpHandler, HttpClient } from '@angular/common/http';
 
 describe('ProjectJoinModalComponent', () => {
   let component: ProjectJoinModalComponent;
@@ -8,7 +10,11 @@ describe('ProjectJoinModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectJoinModalComponent ]
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [ ProjectJoinModalComponent ],
+      providers: [HttpClient, HttpHandler]
     })
     .compileComponents();
   }));

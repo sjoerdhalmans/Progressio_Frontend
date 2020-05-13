@@ -5,7 +5,8 @@ import { ProjectmanagementService } from '../services/projectmanagement.service'
 @Component({
   selector: 'MembersComponent',
   templateUrl: './members.component.html',
-  styleUrls: ['./members.component.css']
+  styleUrls: ['./members.component.css'],
+  providers: [ProjectmanagementService]
 })
 export class MembersComponent implements OnInit {
 

@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TaskboardComponent } from './taskboard.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpHandler, HttpClient } from '@angular/common/http';
 
 describe('TaskboardComponent', () => {
   let component: TaskboardComponent;
@@ -8,7 +10,11 @@ describe('TaskboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TaskboardComponent ]
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [ TaskboardComponent ],
+      providers: [HttpClient, HttpHandler]
     })
     .compileComponents();
   }));

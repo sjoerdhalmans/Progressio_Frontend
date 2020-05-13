@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StoryCreateModalComponent } from './story-create-modal.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpHandler, HttpClient } from '@angular/common/http';
 
 describe('StoryCreateModalComponent', () => {
   let component: StoryCreateModalComponent;
@@ -8,7 +10,11 @@ describe('StoryCreateModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StoryCreateModalComponent ]
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [ StoryCreateModalComponent ],
+      providers: [HttpClient, HttpHandler]
     })
     .compileComponents();
   }));
