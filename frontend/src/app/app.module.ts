@@ -26,6 +26,7 @@ import { StoryUpdateModalComponent } from './modals/story-update-modal/story-upd
 import { MembersComponent } from './members/members.component';
 import { ProjectJoinModalComponent } from './modals/project-join-modal/project-join-modal.component';
 import { ProjectCreateModalComponent } from './modals/project-create-modal/project-create-modal.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -92,6 +93,7 @@ const customNotifierOptions: NotifierOptions = {
     ProjectCreateModalComponent
   ],
   imports: [
+    DragDropModule,
     BrowserModule,
     SimplebarAngularModule,
     AppRoutingModule,

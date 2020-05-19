@@ -20,7 +20,8 @@ export class StoryUpdateModalComponent implements OnInit {
   @Input() storyid;
 
   project;
-  handlingStory
+  handlingStory;
+  backlog;
   closeResult: string;
   stories: Array<Story>;
   hideModal: boolean = false;
@@ -29,6 +30,7 @@ export class StoryUpdateModalComponent implements OnInit {
 
   async ngOnInit() {
     this.handlingStory = this.storyid;
+    await this.data.currentBacklog.subscribe(backlog => this.backlog = backlog);
     await this.data.currentProject.subscribe(project => this.project = project);
     await this.data.currentStories.subscribe(stories => this.stories = stories);
     }
@@ -41,14 +43,15 @@ export class StoryUpdateModalComponent implements OnInit {
     });
   }
 
-  async onSubmit(enteredName: string, content: string) {
+  async onSubmit(enteredName: string, content: string, epic: number) {
     console.log("submitting");
-    const story: Story = {
+    const story = {
       name: enteredName,
       content: content,
       projectId: this.project.id,
       id: this.handlingStory,
-      priority: null
+      priority: null,
+      epicId: epic
     }
 
     console.log(story)

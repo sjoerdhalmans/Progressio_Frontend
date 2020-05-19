@@ -72,21 +72,27 @@ export class ProjectmanagementService {
       Destination: { ApiMethod: "getBacklogById", ApiName: "Backlog" }
     }
 
+    // send request to gateway to grab a backlog by id from the backlog api
     await this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
       .then(res => {
         backlog = res;
       })
 
     let stories: Story[] = [];
+    let epics = backlog.epics;
 
     await backlog.epics.forEach(element => {
-      console.log("teststory")
-      console.log(stories)
       stories = stories.concat(element.stories);
     });
-    stories = await stories.concat(backlog.lonestories)
+    stories = await stories.concat(backlog.lonestories);
+
+    // sort epics and stories by their priority
+    await epics.sort((a, b) => (a.priority > b.priority) ? 1 : -1)
     await stories.sort((a, b) => (a.priority > b.priority) ? 1 : -1)
+
+    // load epics and stories into data service
     await this.data.changeStories(stories);
+    await this.data.changeEpics(epics)
 
     return backlog
   }

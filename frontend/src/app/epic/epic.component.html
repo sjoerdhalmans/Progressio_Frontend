@@ -4,15 +4,21 @@
 </div>
 <div class="content">
     <div class="row">
+        <div class="col-1"></div>
         <div class="col-4">
             <h2><b>name</b></h2>
         </div>
     </div>
 
-    <div class="row epic" *ngFor="let epic of backlog.epics">
-        <div class="col-4">{{epic.name}}</div>
-        <epicupdatemodal class="col-6" [epicid]="epic.id"></epicupdatemodal>
+    <div cdkDropList (cdkDropListDropped)="drop($event)">
+        <div class="row epic" cdkDrag *ngFor="let epic of epics">
+            <div class="col-1">#{{epic.priority}}</div>
+            <div class="col-4">{{epic.name}}</div>
+            <epicupdatemodal class="col-6" [epicid]="epic.id"></epicupdatemodal>
+        </div>
     </div>
+
+
 
     <ModalComponent></ModalComponent>
 </div>
