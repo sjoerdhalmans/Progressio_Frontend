@@ -14,7 +14,7 @@
         <div class="row epic" cdkDrag *ngFor="let epic of epics">
             <div class="col-1">#{{epic.priority}}</div>
             <div class="col-4">{{epic.name}}</div>
-            <epicupdatemodal class="col-6" [epicid]="epic.id"></epicupdatemodal>
+            <epicupdatemodal class="col-6" [epic]="epic"></epicupdatemodal>
         </div>
     </div>
 

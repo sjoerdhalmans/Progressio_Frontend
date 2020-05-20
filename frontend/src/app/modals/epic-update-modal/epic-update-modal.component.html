@@ -1,22 +1,22 @@
 <ng-template #content let-modal>
-    <div class="modal-header">
+    <div class="modal-header modal-head">
         <h4 class="modal-title" id="modal-basic-title">View epic</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <button type="button" class="closebutton" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <form (submit)="onSubmit(name.value, description.value)">
         <div class="modal-body">
 
-            <input #name placeholder="name">
-            <input #description placeholder="content">
+            <input #name placeholder="name" value="{{handlingEpic.name}}">
+            <input #description placeholder="content" value="{{handlingEpic.description}}">
 
         </div>
-        <div class="row">
-            <div class="modal-footer col-6">
+        <div class="row justify-content-center">
+            <div class="modal-footer col-5 justify-content-center">
                 <button type="button" type="submit" class="btn btn-outline-dark" data-dismiss="modal">Save</button>
             </div>
-            <div class="modal-footer col-6">
+            <div class="modal-footer col-5 justify-content-center">
                 <button type="button" class="btn btn-outline-dark" data-dismiss="modal" (click)="deleteEpic()">Delete</button>
             </div>
         </div>

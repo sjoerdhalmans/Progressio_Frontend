@@ -1,7 +1,7 @@
 <ng-template #content let-modal >
-    <div class="modal-header">
+    <div class="modal-header modal-head">
         <h4 class="modal-title" id="modal-basic-title">Join Project</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <button type="button" class="closebutton" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
@@ -12,8 +12,8 @@
 
         </div>
         <div class="row">
-            <div class="modal-footer col-6">
-                <button type="button" type="submit" class="btn btn-outline-dark" data-dismiss="modal">Join</button>
+            <div class="modal-footer col-6 justify-content-center">
+                <button type="button justify-content-center" type="submit" class="btn btn-outline-dark" data-dismiss="modal">Join</button>
             </div>
         </div>
 

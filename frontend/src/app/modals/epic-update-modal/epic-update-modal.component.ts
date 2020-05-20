@@ -17,22 +17,22 @@ interface Epic {
 })
 
 export class EpicUpdateModalComponent implements OnInit {
-  @Input() epicid;
+  @Input() epic;
 
   project;
   closeResult: string;
-  handlingEpic: number;
+  handlingEpic
 
 
   constructor(private modalService: NgbModal, private data: ProjectDataService, private projectService: ProjectmanagementService) { }
 
   async ngOnInit() {
-    this.handlingEpic = this.epicid;
+    this.handlingEpic = this.epic;
     await this.data.currentProject.subscribe(project => this.project = project);
   }
 
   open(content) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true, size: 'lg' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -45,7 +45,7 @@ export class EpicUpdateModalComponent implements OnInit {
       name: enteredName,
       description: content,
       projectId: this.project.id,
-      id: this.handlingEpic
+      id: this.handlingEpic.id
     }
 
     console.log(epic)

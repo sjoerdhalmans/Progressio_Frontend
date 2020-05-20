@@ -16,20 +16,32 @@
     margin: 100px auto 32px;
     max-width: 1400px;
     flex-direction: column;
-  }
+}
 
-  .epicend {
-      border-style: solid;
-      border-top: thin;
-      border-color: grey;
-  }
+.modal-head {
+    color: white;
+    background-color: black;
+}
 
-  .category {
-      margin-top: 80px;
-  }
+.closebutton {
+    color: white;
+    background-color: black;
+    border-color: black;
+    height: 70%;
+}
 
-  .addepic {
+.epicend {
+    border-style: solid;
+    border-top: thin;
+    border-color: grey;
+}
+
+.category {
+    margin-top: 80px;
+}
+
+.addepic {
     background-color: #990000;
     border-color: #990000;
     width: 10%;
-  }
+}

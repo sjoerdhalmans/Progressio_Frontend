@@ -14,7 +14,7 @@
     <div class="row epic" *ngFor="let story of stories">
         <div class="col-1">#{{story.priority}}</div>
         <div class="col-4">{{story.name}}</div>
-        <storyupdatemodal class="col-6" [storyid]="story.id"></storyupdatemodal>
+        <storyupdatemodal class="col-6" [story]="story"></storyupdatemodal>
     </div>
 
     <CreateStoryModal></CreateStoryModal>

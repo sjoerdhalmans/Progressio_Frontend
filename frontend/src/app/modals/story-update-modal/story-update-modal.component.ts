@@ -17,7 +17,7 @@ interface Story {
   styleUrls: ['./story-update-modal.component.css']
 })
 export class StoryUpdateModalComponent implements OnInit {
-  @Input() storyid;
+  @Input() story;
 
   project;
   handlingStory;
@@ -29,7 +29,7 @@ export class StoryUpdateModalComponent implements OnInit {
   constructor(private modalService: NgbModal, private data: ProjectDataService, private projectService: ProjectmanagementService) { }
 
   async ngOnInit() {
-    this.handlingStory = this.storyid;
+    this.handlingStory = this.story;
     await this.data.currentBacklog.subscribe(backlog => this.backlog = backlog);
     await this.data.currentProject.subscribe(project => this.project = project);
     await this.data.currentStories.subscribe(stories => this.stories = stories);
@@ -49,7 +49,7 @@ export class StoryUpdateModalComponent implements OnInit {
       name: enteredName,
       content: content,
       projectId: this.project.id,
-      id: this.handlingStory,
+      id: this.handlingStory.id,
       priority: null,
       epicId: epic
     }

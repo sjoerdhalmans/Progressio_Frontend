@@ -1,42 +1,53 @@
 * {
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .epic {
-    border-top: thin;
-    border-top-style: double;
-    border-color: grey;
-    border-bottom: grey;
-    padding-top: 15px;
-    padding-bottom: 15px;
+  border-top: thin;
+  border-top-style: double;
+  border-color: grey;
+  border-bottom: grey;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .content {
-    display: flex;
-    margin: 100px auto 32px;
-    max-width: 1400px;
-    flex-direction: column;
-  }
+  display: flex;
+  margin: 100px auto 32px;
+  max-width: 1400px;
+  flex-direction: column;
+}
 
-  .epicend {
-      border-style: solid;
-      border-top: thin;
-      border-color: grey;
-  }
+.modal-head {
+  color: white;
+  background-color: black;
+}
 
-  .category {
-      margin-top: 80px;
-  }
+.closebutton {
+  color: white;
+  background-color: black;
+  border-color: black;
+  height: 70%;
+}
 
-  .joinbutton {
-    background-color: #990000;
-    border-color: #990000;
-    width: 90px;
-  }
+.epicend {
+  border-style: solid;
+  border-top: thin;
+  border-color: grey;
+}
 
+.category {
+  margin-top: 80px;
+}
 
-  .addepic {
-    background-color: #990000;
-    border-color: #990000;
-    width: 10%;
-  }
+.joinbutton {
+  background-color: #990000;
+  border-color: #990000;
+  width: 90px;
+}
+
+.addepic {
+  background-color: #990000;
+  border-color: #990000;
+  width: 10%;
+}
