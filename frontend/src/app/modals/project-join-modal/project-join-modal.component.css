@@ -43,7 +43,8 @@
 .joinbutton {
   background-color: #990000;
   border-color: #990000;
-  width: 90px;
+  /* width: 90px; */
+  align-self: center;
 }
 
 .addepic {

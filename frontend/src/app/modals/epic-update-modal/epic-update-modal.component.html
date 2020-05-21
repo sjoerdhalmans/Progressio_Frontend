@@ -7,10 +7,11 @@
     </div>
     <form (submit)="onSubmit(name.value, description.value)">
         <div class="modal-body">
+            <p>Epic name</p>
+            <input #name placeholder="name" value="{{handlingEpic.name}}"><br>
 
-            <input #name placeholder="name" value="{{handlingEpic.name}}">
+            <p>Epic Content</p>
             <input #description placeholder="content" value="{{handlingEpic.description}}">
-
         </div>
         <div class="row justify-content-center">
             <div class="modal-footer col-5 justify-content-center">
