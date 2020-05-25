@@ -1,4 +1,7 @@
 language: node_js
-script: 
-- cd frontend
-- npm run test
+
+install:
+  - npm install
+
+script:
+  - npm run test
