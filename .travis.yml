@@ -4,6 +4,7 @@ node_js:
 dist: trusty
 sudo: required
 before_script:
-  - npm install -g @angular/cli
+- cd frontend
+- npm install
 script:
 - ng build 
