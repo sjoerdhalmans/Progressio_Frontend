@@ -1,21 +1,11 @@
 dist: trusty
-sudo: false
+sudo: required
 
 language: node_js
-node_js:
-  - '12'
 
-cache:
-  directories:
-    - ./node_modules
-
-before_install:
+before_script:
 - cd frontend
-
-install:
-- sudo npm install bower -g
 
 - npm install
 
-script:
-  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+
