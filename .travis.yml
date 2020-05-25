@@ -7,4 +7,5 @@ before_script:
 - cd frontend
 - npm install -g @angular/cli
 script:
-- ng build 
+  - npm run test-headless
+  - ng build
