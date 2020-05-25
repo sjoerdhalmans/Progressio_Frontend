@@ -8,9 +8,9 @@ node_js:
 before_script:
 - cd frontend
 - npm install -g @angular/cli
-- npm install
 
 script:
+- npm install
 - ng build
 - ng test
 
