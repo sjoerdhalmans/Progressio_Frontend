@@ -5,6 +5,9 @@ language: node_js
 node_js:
   - "12.13.0"
 
+first:
+- export CHROME_BIN=chromium-browser
+
 before_script:
 - cd frontend
 - npm install -g @angular/cli
