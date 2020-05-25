@@ -13,7 +13,8 @@ before_install:
 - cd frontend
 
 install:
-  - npm install
+- sudo npm install bower -g
+ - npm install
 
 script:
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
