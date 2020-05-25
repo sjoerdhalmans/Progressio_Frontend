@@ -1,4 +1,5 @@
 language: node_js
 script: 
 - cd frontend
+- npm install ng-common
 - ng test
