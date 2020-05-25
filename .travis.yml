@@ -14,7 +14,7 @@ before_install:
 
 install:
 - sudo npm install bower -g
- - npm install
+- npm install
 
 script:
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
