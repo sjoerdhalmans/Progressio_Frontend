@@ -13,11 +13,13 @@ export class AuthenticationComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.getUser$().toPromise().then(res => {
-      var user = JSON.stringify(res);
+      if(res != undefined) {
+        var user = JSON.stringify(res);
 
-      let userObject = JSON.parse(user)
-
-      this.userService.getUser(userObject.sub);
+        let userObject = JSON.parse(user)
+  
+        this.userService.getUser(userObject.sub);
+      }
     })
   }
 
