@@ -25,21 +25,23 @@ export class ProjectmanagementService {
     var projects;
     var sub;
     var user;
-    await this.auth.getUser$().toPromise().then(res => {
-      var userauth = JSON.stringify(res);
-
-      let userObject = JSON.parse(userauth)
-
-      sub = userObject.sub;
-    })
-
-    await this.userService.getUser(sub).then(res => {
-      var idjson = JSON.stringify(res);
-
-      let idobject = JSON.parse(idjson);
-
-      user = idobject.find(Boolean).id;
-    })
+    if (this.auth.getUser$() != undefined) {
+      await this.auth.getUser$().toPromise().then(res => {
+        var userauth = JSON.stringify(res);
+  
+        let userObject = JSON.parse(userauth)
+  
+        sub = userObject.sub;
+      })
+  
+      await this.userService.getUser(sub).then(res => {
+        var idjson = JSON.stringify(res);
+  
+        let idobject = JSON.parse(idjson);
+  
+        user = idobject.find(Boolean).id;
+      }) 
+    }
 
     const body = <Object>{
       Content: user,
