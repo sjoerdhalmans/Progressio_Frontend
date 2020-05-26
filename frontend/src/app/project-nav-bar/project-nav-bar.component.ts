@@ -14,9 +14,10 @@ export class ProjectNavBarComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.auth.userProfile$.subscribe(
-      profile => this.profile = profile
-    );
+    if (this.auth.userProfile$ != undefined) {
+      this.auth.userProfile$.subscribe(
+        profile => this.profile = profile
+      );
+    }
   }
-
 }
