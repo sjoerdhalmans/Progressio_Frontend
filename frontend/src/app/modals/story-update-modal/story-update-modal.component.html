@@ -15,8 +15,10 @@
 
         <h4>link to epic</h4>
         <select #epic ng-model="selected epic">
-            <option></option>
+            <option *ngIf="coupledEpic == undefined"></option>
+            <option *ngIf="coupledEpic != undefined" value="{{coupledEpic}}">{{coupledEpic.name}}</option>
             <option *ngFor="let epic of backlog.epics" value="{{epic.id}}">{{epic.name}}</option>
+            <option *ngIf="coupledEpic != undefined"></option>
         </select>
 
         <div class="row justify-content-center">

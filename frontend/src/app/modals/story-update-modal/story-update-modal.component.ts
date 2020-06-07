@@ -25,6 +25,7 @@ export class StoryUpdateModalComponent implements OnInit {
   closeResult: string;
   stories: Array<Story>;
   hideModal: boolean = false;
+  coupledEpic;
 
   constructor(private modalService: NgbModal, private data: ProjectDataService, private projectService: ProjectmanagementService) { }
 
@@ -33,9 +34,16 @@ export class StoryUpdateModalComponent implements OnInit {
     await this.data.currentBacklog.subscribe(backlog => this.backlog = backlog);
     await this.data.currentProject.subscribe(project => this.project = project);
     await this.data.currentStories.subscribe(stories => this.stories = stories);
-    }
+  }
 
   open(content) {
+    console.log(this.handlingStory.epicId)
+    console.log(this.backlog)
+    if (this.handlingStory.epic != 0) {
+      this.coupledEpic = this.backlog.epics.find(epic => epic.id == this.handlingStory.epicId)
+      this.backlog.epics = this.backlog.epics.filter(epic => epic.id !== this.handlingStory.epicId)
+
+    }
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true, size: 'lg' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {

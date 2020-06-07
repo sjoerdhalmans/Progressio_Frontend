@@ -16,20 +16,34 @@
     margin: 100px auto 32px;
     max-width: 1400px;
     flex-direction: column;
-  }
+}
 
-  .epicend {
-      border-style: solid;
-      border-top: thin;
-      border-color: grey;
-  }
+.spoiler, .spoiler2 {
+    color: black;
+    background-color: black;
+    display: inline;
+}
 
-  .category {
-      margin-top: 80px;
-  }
+.spoiler:hover {
+    color: white;
+}
 
-  .addepic {
+.spoiler2:hover {
+    background-color: white;
+}
+
+.epicend {
+    border-style: solid;
+    border-top: thin;
+    border-color: grey;
+}
+
+.category {
+    margin-top: 80px;
+}
+
+.addepic {
     background-color: #990000;
     border-color: #990000;
     width: 10%;
-  }
+}

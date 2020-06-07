@@ -12,13 +12,21 @@
 
             <p>Epic Content</p>
             <input #description placeholder="content" value="{{handlingEpic.description}}">
+            <p>Coupled userstories</p>
+            <div *ngFor="let userstory of handlingEpic.stories">
+                <div class="row epic">
+                    <div class="col-1">#{{userstory.priority}}</div>
+                    <div class="col-4">{{userstory.name}}</div>
+                </div>
+            </div>
         </div>
         <div class="row justify-content-center">
             <div class="modal-footer col-5 justify-content-center">
                 <button type="button" type="submit" class="btn btn-outline-dark" data-dismiss="modal">Save</button>
             </div>
             <div class="modal-footer col-5 justify-content-center">
-                <button type="button" class="btn btn-outline-dark" data-dismiss="modal" (click)="deleteEpic()">Delete</button>
+                <button type="button" class="btn btn-outline-dark" data-dismiss="modal"
+                    (click)="deleteEpic()">Delete</button>
             </div>
         </div>
     </form>
