@@ -25,7 +25,7 @@ export class ProjectmanagementService {
     var projects;
     var sub;
     var user;
-    if (this.auth.getUser$() != undefined) {
+    if (this.auth.getUser$() != undefined && this.auth.getUser$() != null) {
       await this.auth.getUser$().toPromise().then(res => {
         var userauth = JSON.stringify(res);
 
