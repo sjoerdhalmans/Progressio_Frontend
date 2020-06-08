@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { ProjectmanagementService } from './projectmanagement.service';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ProjectmanagementService', () => {
   let service: ProjectmanagementService;
@@ -10,9 +10,9 @@ describe('ProjectmanagementService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientModule
       ],
-      providers: [HttpClient, HttpHandler]
     });
     service = TestBed.inject(ProjectmanagementService);
   });

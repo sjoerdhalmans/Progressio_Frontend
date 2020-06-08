@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AuthenticationComponent } from './authentication.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpHandler, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('AuthenticationComponent', () => {
   let component: AuthenticationComponent;
@@ -11,10 +11,10 @@ describe('AuthenticationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientModule
       ],
       declarations: [ AuthenticationComponent ],
-      providers: [HttpClient, HttpHandler]
     })
     .compileComponents();
   }));
