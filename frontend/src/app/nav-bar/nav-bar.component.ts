@@ -6,20 +6,22 @@ import { tap } from 'rxjs/operators';
 import { observable } from 'rxjs';
 
 @Component({
-  selector: 'NavBarComponent',  
+  selector: 'NavBarComponent',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
   profile: any = null;
 
-  constructor(public auth: AuthService, public user : UserService) { 
-   }
+  constructor(public auth: AuthService, public user: UserService) {
+  }
 
   ngOnInit() {
-    this.auth.userProfile$.subscribe(
-      profile => this.profile = profile
-    );
+    if (this.auth.userProfile$ != undefined) {
+      this.auth.userProfile$.subscribe(
+        profile => this.profile = profile
+      );
+    }
   }
 
 }
