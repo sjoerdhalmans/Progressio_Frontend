@@ -13,7 +13,7 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
 export class ProjectoverviewComponent implements OnInit {
 
   message: string;
-  constructor(private data: ProjectDataService , private projectService: ProjectmanagementService) { }
+  constructor(private data: ProjectDataService) { }
 
   project
   backlog
