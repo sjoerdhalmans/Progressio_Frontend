@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StoryCreateModalComponent } from './story-create-modal.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('StoryCreateModalComponent', () => {
   let component: StoryCreateModalComponent;
@@ -12,7 +12,7 @@ describe('StoryCreateModalComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientModule
+        HttpClientTestingModule
       ],
       declarations: [ StoryCreateModalComponent ],
     })
