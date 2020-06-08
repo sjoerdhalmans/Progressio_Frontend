@@ -21,7 +21,7 @@ export class BacklogComponent implements OnInit {
   backlog
   stories: Array<Story> = [];
 
-  constructor(private data: ProjectDataService , private projectService: ProjectmanagementService) { }
+  constructor(private data: ProjectDataService) { }
 
   async ngOnInit() {
     await this.data.currentProject.subscribe(project => this.project = project);

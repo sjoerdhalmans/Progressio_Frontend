@@ -25,23 +25,24 @@ export class ProjectmanagementService {
     var projects;
     var sub;
     var user;
-    if (this.auth.getUser$() != undefined && this.auth.getUser$() != null) {
-      await this.auth.getUser$().toPromise().then(res => {
-        var userauth = JSON.stringify(res);
 
+    await this.auth.getUser$().toPromise().then(res => {
+      var userauth = JSON.stringify(res);
+
+      if (userauth != undefined && userauth != null) {
         let userObject = JSON.parse(userauth)
 
         sub = userObject.sub;
-      })
+      }
+    })
 
-      await this.userService.getUser(sub).then(res => {
-        var idjson = JSON.stringify(res);
+    await this.userService.getUser(sub).then(res => {
+      var idjson = JSON.stringify(res);
 
-        let idobject = JSON.parse(idjson);
+      let idobject = JSON.parse(idjson);
 
-        user = idobject.find(Boolean).id;
-      })
-    }
+      user = idobject.find(Boolean).id;
+    })
 
     const body = <Object>{
       Content: user,
@@ -102,38 +103,38 @@ export class ProjectmanagementService {
   public async joinProject(projectcode): Promise<Object> {
     var joinedUser
 
-    if (this.auth.getUser$() != undefined && this.auth.getUser$() != null) {
-      this.auth.getUser$().toPromise().then(async res => {
-        var projects
-        var foundproject
-        var json = JSON.stringify(res)
+    this.auth.getUser$().toPromise().then(async res => {
+      var projects
+      var foundproject
+      var json = JSON.stringify(res)
+
+      if (json != undefined && json != null) {
         var newjson = JSON.parse(json);
-        var users
-        var user
-        await this.userService.getUser(newjson.sub).then(res => {
-          users = res;
-        });
+      }
+      var users
+      var user
+      await this.userService.getUser(newjson.sub).then(res => {
+        users = res;
+      });
 
-        await this.getAllProjects().then(res => {
-          projects = res;
-        });
-        user = users[0];
-        foundproject = await projects.find(x => x.projectCode == projectcode)
+      await this.getAllProjects().then(res => {
+        projects = res;
+      });
+      user = users[0];
+      foundproject = await projects.find(x => x.projectCode == projectcode)
 
-        const body = <Object>{
-          Content: { user: user.id, projectId: foundproject.id },
-          Destination: { ApiMethod: "addUserToProject", ApiName: "Project" }
-        }
+      const body = <Object>{
+        Content: { user: user.id, projectId: foundproject.id },
+        Destination: { ApiMethod: "addUserToProject", ApiName: "Project" }
+      }
 
-        this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
-          .then(res => {
-            joinedUser = res;
-            this.updateProjects()
-          })
-      })
-      return joinedUser;
-    }
-
+      this.http.post<Object>('http://localhost:1957/api/gateway', body).toPromise()
+        .then(res => {
+          joinedUser = res;
+          this.updateProjects()
+        })
+    })
+    return joinedUser;
   }
 
   public async createProject(project) {
